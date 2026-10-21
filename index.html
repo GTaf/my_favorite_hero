@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git — Lecture 2</title>
+  <style>
+    :root {
+      --ink:        #2b2a27;
+      --ink-soft:   #6b6862;
+      --paper:      #faf7f2;
+      --card:       #ffffff;
+      --accent:     #7c4a2d;
+      --accent-lt:  #f0e4dc;
+      --line:       #e6e0d6;
+      --code-bg:    #24211d;
+      --code-fg:    #e9e2d5;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .kicker {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.75rem;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      color: var(--ink-soft);
+      font-size: 1.15rem;
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* ---------- Table of contents ---------- */
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    nav.toc h2 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin: 0 0 0.75rem;
+    }
+
+    nav.toc ol {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    nav.toc li { margin: 0.3rem 0; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- Sections ---------- */
+    section { margin-bottom: 3.5rem; }
+
+    h2.section-title {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+    }
+
+    p { margin: 0.9rem 0; }
+
+    /* ---------- Placeholder hint ---------- */
+    .todo {
+      background: var(--accent-lt);
+      border-left: 3px solid var(--accent);
+      padding: 0.6rem 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+      color: var(--accent);
+      font-size: 0.95rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* ---------- Code ---------- */
+    pre {
+      background: var(--code-bg);
+      color: var(--code-fg);
+      font-family: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      padding: 1.1rem 1.3rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+
+    pre .prompt { color: #8a9a5b; }
+    pre .cmd    { color: #f2d16b; }
+    pre .out    { color: #9d968a; }
+
+    code {
+      font-family: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+      font-size: 0.88em;
+      background: #efe9df;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+    }
+
+    pre code { background: none; padding: 0; }
+
+    /* ---------- Callout ---------- */
+    .callout {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.1rem 1.4rem;
+      margin: 1.5rem 0;
+    }
+
+    .callout .label {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <p class="kicker">Git · Leçon 2</p>
+      <h1>Travail pratique et DAG</h1>
+      <p class="subtitle">Plus de pratique maintenant que le WEI est loin.</p>
+    </header>
+
+    <nav class="toc">
+      <h2>Outline</h2>
+      <ol>
+        <li><a href="#branches">Rappels</a></li>
+        <li><a href="#merging">DAG</a></li>
+        <li><a href="#conflicts">Conflits à résoudre</a></li>
+        <li><a href="#exercices">Exercices</a></li>
+      </ol>
+    </nav>
+
+    <section id="branches">
+      <h2 class="section-title">1. Rappels</h2>
+      <div class="callout">
+        <div class="label">Exercice 1</div>
+        <p>Repo(sitory) du jour : <a href="https://github.com/GTaf/my_favorite_hero">ici</a></p>
+        <p>Rajouter le fichier correspondant à votre numéro en faisant une PR (Pull Request)</p>
+      </div>
+      <pre><code><span class="prompt">$</span> <span class="cmd">git clone</span>
+<span class="prompt">$</span> <span class="cmd">git add/commit</span></code></pre>
+    </section>
+
+    <section id="merging">
+      <h2 class="section-title">2. DAG</h2>
+      <div class="callout">
+        <div class="label">Exercice 2</div>
+        <p>Exercices à faire : <a href=https://learngitbranching.js.org/?locale=fr_FR>learngitbranching.js.org</a>. 
+          Cela permet de bien comprendre ce qui se passe au niveau du DAG.</p>
+      </div>
+    </section>
+
+    <section id="conflicts">
+      <h2 class="section-title">3. Conflits, merge/rebase</h2>
+      <div class="callout">
+        <div class="label">Contenu</div>
+        <p>Explication en cours sur tableau</p>
+      </div>
+    </section>
+
+    <section id="exercices">
+      <h2 class="section-title">4. Exercices</h2>
+      <div class="callout">
+        <div class="label">Exercice 3</div>
+        <p>Continuer: <a href=https://learngitbranching.js.org/?locale=fr_FR>learngitbranching.js.org</a>. 
+          Comprendre les branches distantes et remotes.</p>
+      </div>
+      <div class="callout">
+        <div class="label">Exercice 4</div>
+        <p><a href="https://gitvana.pixari.dev/">More git pleasure  </a></p>
+      </div>
+    </section>
+
+    <footer>
+      Git Lecture 2 — Mines · <em>content in progress</em>
+    </footer>
+
+  </div>
+</body>
+</html>
