@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Git — Lecture 2</title>
+  <title>Git — Leçon 2</title>
   <style>
     :root {
       --ink:        #2b2a27;
@@ -11,7 +11,6 @@
       --paper:      #faf7f2;
       --card:       #ffffff;
       --accent:     #7c4a2d;
-      --accent-lt:  #f0e4dc;
       --line:       #e6e0d6;
       --code-bg:    #24211d;
       --code-fg:    #e9e2d5;
@@ -115,18 +114,6 @@
 
     p { margin: 0.9rem 0; }
 
-    /* ---------- Placeholder hint ---------- */
-    .todo {
-      background: var(--accent-lt);
-      border-left: 3px solid var(--accent);
-      padding: 0.6rem 1rem;
-      margin: 1rem 0;
-      font-style: italic;
-      color: var(--accent);
-      font-size: 0.95rem;
-      border-radius: 0 6px 6px 0;
-    }
-
     /* ---------- Code ---------- */
     pre {
       background: var(--code-bg);
@@ -189,47 +176,47 @@
 
     <header>
       <p class="kicker">Git · Leçon 2</p>
-      <h1>Travail pratique et DAG</h1>
-      <p class="subtitle">Plus de pratique maintenant que le WEI est loin.</p>
+      <h1>Travail pratique &amp; DAG</h1>
+      <p class="subtitle">Encore plus de pratique, maintenant que le WEI est loin.</p>
     </header>
 
     <nav class="toc">
       <h2>Sommaire</h2>
       <ol>
-        <li><a href="#branches">Rappels</a></li>
-        <li><a href="#merging">DAG</a></li>
-        <li><a href="#conflicts">Conflits à résoudre</a></li>
+        <li><a href="#rappels">Rappels</a></li>
+        <li><a href="#dag">DAG</a></li>
+        <li><a href="#conflicts">Conflits, merge / rebase</a></li>
         <li><a href="#exercices">Exercices</a></li>
-        <li><a href="#exercices">git 4 everything</a></li>
-        <li><a href="#exercices">Final</a></li>
+        <li><a href="#git4everything">git 4 everything</a></li>
+        <li><a href="#final">Final</a></li>
       </ol>
     </nav>
 
-    <section id="branches">
+    <section id="rappels">
       <h2 class="section-title">1. Rappels</h2>
       <div class="callout">
         <div class="label">Exercice 1</div>
-        <p>Repo(sitory) du jour : <a href="https://github.com/GTaf/my_favorite_hero">ici</a></p>
-        <p>Rajouter le fichier correspondant à votre numéro en faisant une PR (Pull Request)</p>
+        <p>Repo(sitory) du jour : <a href="https://github.com/GTaf/my_favorite_hero">my_favorite_hero</a></p>
+        <p>Ajoutez le fichier correspondant à votre numéro, via une PR (pull request).</p>
       </div>
       <pre><code><span class="prompt">$</span> <span class="cmd">git clone</span>
 <span class="prompt">$</span> <span class="cmd">git add/commit</span></code></pre>
     </section>
 
-    <section id="merging">
+    <section id="dag">
       <h2 class="section-title">2. DAG</h2>
       <div class="callout">
         <div class="label">Exercice 2</div>
-        <p>Exercices à faire : <a href=https://learngitbranching.js.org/?locale=fr_FR>learngitbranching.js.org</a>. 
-          Cela permet de bien comprendre ce qui se passe au niveau du DAG. Exos 1 à 4 intro</p>
+        <p>À faire sur <a href="https://learngitbranching.js.org/?locale=fr_FR">learngitbranching.js.org</a> :
+          cela permet de bien comprendre ce qui se passe au niveau du DAG. Exos 1 à 4 (introduction).</p>
       </div>
     </section>
 
     <section id="conflicts">
-      <h2 class="section-title">3. Conflits, merge/rebase</h2>
+      <h2 class="section-title">3. Conflits, merge / rebase</h2>
       <div class="callout">
         <div class="label">Contenu</div>
-        <p>Explication en cours sur tableau</p>
+        <p>Explication au tableau, en direct pendant le cours.</p>
       </div>
     </section>
 
@@ -237,33 +224,33 @@
       <h2 class="section-title">4. Exercices</h2>
       <div class="callout">
         <div class="label">Exercice 3</div>
-        <p>Continuer: <a href=https://learngitbranching.js.org/?locale=fr_FR>learngitbranching.js.org</a>. 
-          Comprendre les branches distantes et remotes. Exos 1 à 8 sur push/pull</p>
+        <p>Continuer sur <a href="https://learngitbranching.js.org/?locale=fr_FR">learngitbranching.js.org</a> :
+          comprendre les branches distantes et les remotes. Exos 1 à 8 (push/pull).</p>
       </div>
     </section>
 
-    <section id="exercices">
+    <section id="git4everything">
       <h2 class="section-title">5. git 4 everything</h2>
       <div class="callout">
         <div class="label">Contenu</div>
-        <p>Explication en cours sur tableau (CI, GH pages)</p>
+        <p>Explication au tableau, en direct (CI, GitHub Pages).</p>
       </div>
       <div class="callout">
         <div class="label">Exercice 4</div>
-        <p>Deployez votre propre site web</p>
+        <p>Déployez votre propre site web.</p>
       </div>
     </section>
 
-    <section id="exercices">
+    <section id="final">
       <h2 class="section-title">6. Final</h2>
       <div class="callout">
         <div class="label">Exercice 5</div>
-        <p><a href="https://gitvana.pixari.dev/">More git pleasure</a></p>
+        <p><a href="https://gitvana.pixari.dev/">Gitvana</a> <em>more git pleasure</em>.</p>
       </div>
     </section>
 
     <footer>
-      Git Lecture 2 — Mines · <em>content in progress</em>
+      Git — Leçon 2 · Mines Paris · <em>contenu en cours</em>
     </footer>
 
   </div>
